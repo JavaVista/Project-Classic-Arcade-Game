@@ -34,6 +34,8 @@ class Player {
     this.sprite = "images/char-boy.png";
     this.x = 200;
     this.y = 400;
+    this.column = 101;
+    this.row = 83;
   }
   update(dt) {
     //position
@@ -50,16 +52,24 @@ class Player {
   handleInput(input) {
     switch (input) {
       case "left":
-        this.x -= 100;
+      if (this.x > 0) {
+         this.x -= this.column;
+      }
         break;
       case "up":
-        this.y -= 100;
+      if (this.y > this.row) {
+        this.y -= this.row;
+      }
         break;
       case "right":
-        this.x += 100;
+      if (this.x < this.column * 3) {
+        this.x += this.column;
+      }
         break;
       case "down":
-        this.y += 100;
+      if (this.y < this.row * 4) {
+        this.y += this.row;
+      }
     }
   }
   // reset player
