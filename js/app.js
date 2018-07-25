@@ -1,13 +1,15 @@
 // Enemies our player must avoid
-var Enemy = function() {
+var Enemy = function(x, y, speed) {
   // Variables applied to each of our instances go here,
   // we've provided one for you to get started
 
   // The image/sprite for our enemies, this uses
   // a helper we've provided to easily load images
   this.sprite = "images/enemy-bug.png";
-  this.x = 10;
-  this.y = 100;
+  this.x = x;
+  this.y = y + 55;
+  this.column = 101;
+  this.speed = speed;
 };
 
 // Update the enemy's position, required method for game
@@ -17,9 +19,13 @@ Enemy.prototype.update = function(dt) {
   // which will ensure the game runs at the same speed for
   // all computers.
   // if statement to check if enemy passed boundary
-  //move forward x by speed  * dt
-  // else
+  if (this.x < this.column * 5) {
+    //move forward x by speed  * dt
+    this.x += this.speed * dt;
+  } else {
   // reset pos
+    this.x = 0;
+  }
 };
 
 // Draw the enemy on the screen, required method for game
@@ -78,9 +84,13 @@ class Player {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
+const enemyBug1 = new Enemy(-101, 0, 200);
+const enemyBug2 = new Enemy(-101, 83, 100);
+const enemyBug3= new Enemy((-101 * 2.5), 83, 150);
 const allEnemies = [];
+allEnemies.push(enemyBug1, enemyBug2, enemyBug3);
 let player = new Player();
-
+console.log(allEnemies);
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener("keyup", function(e) {
