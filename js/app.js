@@ -39,16 +39,25 @@ class Player {
   constructor() {
     this.sprite = "images/char-boy.png";
     this.x = 200;
-    this.y = 400;
+    this.y = 387;
     this.column = 101;
     this.row = 83;
+    this.win = false;
   }
   update(dt) {
-    //position
     //check collision
+    for (const enemy of allEnemies) {
     //check if enemy collided check x and y
+      if (this.y === enemy.y && (enemy.x + enemy.column / 2 > this.x && enemy.x < this.x + this.column  / 2)) {
+        this.reset();
+      }
+     }
     // check win
     // did player reach final tile check x and y
+    if (this.y === 55) {
+      console.log('Winner Winner Chicken Dinner!')
+      this.win = true;
+    }
   }
   // Draw player on the screen
   render() {
@@ -78,7 +87,11 @@ class Player {
       }
     }
   }
-  // reset player
+  // Reset player
+  reset() {
+    this.x = 200;
+    this.y = 387;
+  }
 }
 
 // Now instantiate your objects.
