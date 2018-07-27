@@ -23,7 +23,7 @@ Enemy.prototype.update = function(dt) {
     //move forward x by speed  * dt
     this.x += this.speed * dt;
   } else {
-  // reset pos
+    // reset pos
     this.x = 0;
   }
 };
@@ -47,15 +47,17 @@ class Player {
   update(dt) {
     //check collision
     for (const enemy of allEnemies) {
-    //check if enemy collided check x and y
-      if (this.y === enemy.y && (enemy.x + enemy.column / 2 > this.x && enemy.x < this.x + this.column  / 2)) {
+      //check if enemy collided check x and y
+      if (
+        this.y === enemy.y &&
+        (enemy.x + enemy.column / 2 > this.x &&
+          enemy.x < this.x + this.column / 2)
+      ) {
         this.reset();
       }
-     }
-    // check win
-    // did player reach final tile check x and y
+    }
+    // check win - player reach final tile by checking x and y
     if (this.y === 55) {
-      console.log('Winner Winner Chicken Dinner!')
       this.win = true;
     }
   }
@@ -67,24 +69,24 @@ class Player {
   handleInput(input) {
     switch (input) {
       case "left":
-      if (this.x > 0) {
-         this.x -= this.column;
-      }
+        if (this.x > 0) {
+          this.x -= this.column;
+        }
         break;
       case "up":
-      if (this.y > this.row) {
-        this.y -= this.row;
-      }
+        if (this.y > this.row) {
+          this.y -= this.row;
+        }
         break;
       case "right":
-      if (this.x < this.column * 3) {
-        this.x += this.column;
-      }
+        if (this.x < this.column * 3) {
+          this.x += this.column;
+        }
         break;
       case "down":
-      if (this.y < this.row * 4) {
-        this.y += this.row;
-      }
+        if (this.y < this.row * 4) {
+          this.y += this.row;
+        }
     }
   }
   // Reset player
@@ -99,11 +101,10 @@ class Player {
 // Place the player object in a variable called player
 const enemyBug1 = new Enemy(-101, 0, 200);
 const enemyBug2 = new Enemy(-101, 83, 100);
-const enemyBug3= new Enemy((-101 * 2.5), 83, 150);
+const enemyBug3 = new Enemy(-101 * 2.5, 83, 150);
 const allEnemies = [];
 allEnemies.push(enemyBug1, enemyBug2, enemyBug3);
 let player = new Player();
-console.log(allEnemies);
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener("keyup", function(e) {
