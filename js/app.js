@@ -57,7 +57,7 @@ class Player {
       }
     }
     // check win - player reach final tile by checking x and y
-    if (this.y === 55) {
+    if (this.y === -28) {
       this.win = true;
     }
   }
@@ -74,7 +74,7 @@ class Player {
         }
         break;
       case "up":
-        if (this.y > this.row) {
+        if (this.y > 0 ) {
           this.y -= this.row;
         }
         break;
@@ -105,6 +105,9 @@ const enemyBug3 = new Enemy(-101 * 2.5, 83, 150);
 const allEnemies = [];
 allEnemies.push(enemyBug1, enemyBug2, enemyBug3);
 let player = new Player();
+
+
+
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener("keyup", function(e) {
