@@ -5,7 +5,7 @@ var Enemy = function(x, y, speed) {
 
   // The image/sprite for our enemies, this uses
   // a helper we've provided to easily load images
-  this.sprite = "images/enemy-bug.png";
+  this.sprite = 'images/enemy-bug.png';
   this.x = x;
   this.y = y + 55;
   this.column = 101;
@@ -37,7 +37,7 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 class Player {
   constructor() {
-    this.sprite = "images/char-boy.png";
+    this.sprite = 'images/char-boy.png';
     this.x = 200;
     this.y = 387;
     this.column = 101;
@@ -68,22 +68,22 @@ class Player {
   }
   handleInput(input) {
     switch (input) {
-      case "left":
+      case 'left':
         if (this.x > 0) {
           this.x -= this.column;
         }
         break;
-      case "up":
-        if (this.y > 0 ) {
+      case 'up':
+        if (this.y > 0) {
           this.y -= this.row;
         }
         break;
-      case "right":
+      case 'right':
         if (this.x < this.column * 3) {
           this.x += this.column;
         }
         break;
-      case "down":
+      case 'down':
         if (this.y < this.row * 4) {
           this.y += this.row;
         }
@@ -101,21 +101,19 @@ class Player {
 // Place the player object in a variable called player
 const enemyBug1 = new Enemy(-101, 0, 200);
 const enemyBug2 = new Enemy(-101, 83, 100);
-const enemyBug3 = new Enemy(-101 * 2.5, 83, 150);
+const enemyBug3 = new Enemy(-101 * 2.5, 166, 150);
 const allEnemies = [];
 allEnemies.push(enemyBug1, enemyBug2, enemyBug3);
 let player = new Player();
 
-
-
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
-document.addEventListener("keyup", function(e) {
+document.addEventListener('keyup', function(e) {
   var allowedKeys = {
-    37: "left",
-    38: "up",
-    39: "right",
-    40: "down"
+    37: 'left',
+    38: 'up',
+    39: 'right',
+    40: 'down'
   };
 
   player.handleInput(allowedKeys[e.keyCode]);
