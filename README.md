@@ -28,8 +28,8 @@ To view the code and make changes:
 3. Locate the `index.html` file and open with an internet browser or favorite editor.
 
 ### Demo
-add an image ![alt](/images/classicArcadeClone.png)
-[Play the Classic Arcade](https://javavista.github.io/Project-Memory-Game/)
+![Classic Arcade Clone Screenshot](/images/classicArcadeClone.png)
+[Play the Classic Arcade](https://javavista.github.io/Project-Classic-Arcade-Game/)
 
 ## Contact / Social Media
 
