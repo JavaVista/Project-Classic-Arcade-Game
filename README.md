@@ -6,7 +6,7 @@ Udacity Front-End Developer Nanodegree project.
 
 ### Task
 
-Used JavaScript oject-oriented techniques to add entities to the game including the player characters and enemies to recreate a clone of the classic arcade game "Frogger".
+Used JavaScript object-oriented techniques to add entities to the game including the player characters and enemies to recreate a clone of the classic arcade game "Frogger".
 
 ## Game Instructions
 
